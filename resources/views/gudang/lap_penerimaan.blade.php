@@ -9,7 +9,7 @@
     }
 
     .card-custom {
-        background: #bfbfbf;
+        background: #e8d9df;
         padding: 40px;
         border-radius: 12px;
         width: 100%;
@@ -106,19 +106,19 @@
         <form action="{{ route('penerimaan.store') }}" method="POST">
             @csrf
         
-            <input type="text" name="nama_barang" class="input" placeholder="Nama Barang">
+            <input type="text" name="nama_barang" class="input" placeholder="Nama Barang" value="{{ old('nama_barang')}}">
         
-            <input type="date" name="tanggal_penerimaan" class="input">
+            <input type="date" name="tanggal_penerimaan" class="input" value="{{ old('tanggal_penerimaan')}}">
         
             <div class="row-flex">
                 <div class="input-group">
                     <div class="label">Jumlah Fisik</div>
-                    <input type="number" name="jumlah" class="input" value="0">
+                    <input type="number" name="jumlah" class="input" value="{{ old('jumlah', 0) }}">
                 </div>
         
                 <div class="input-group">
                     <div class="label">Kondisi Barang</div>
-                    <input type="text" name="kondisi_barang" class="input">
+                    <input type="text" name="kondisi_barang" class="input" value="{{ old('kondisi_barang')}}">
                 </div>
             </div>
         
@@ -137,10 +137,23 @@
 </div>
 @endif
 
+@if($errors->any())
+<div id="errorPopup" class="popup-overlay">
+    <div class="popup-box">
+        <p class="popup-text">{{ $errors->first() }}</p>
+        <button class="popup-button" onclick="closeErrorPopup()">OK</button>
+    </div>
+</div>
+@endif
+
 <script>
     function closePopup() {
         document.getElementById("popupOverlay").style.display = "none";
     }
-    </script>
+
+    function closeErrorPopup() {
+        document.getElementById("errorPopup").style.display = "none";
+    }
+</script>
 
 @endsection
