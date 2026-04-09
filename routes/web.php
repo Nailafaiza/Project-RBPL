@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\LapPenjualanController;
 use App\Http\Controllers\penerimaanController;
 use App\Http\Controllers\stokController;
+use App\Http\Controllers\penjualanController;
+use App\Http\Controllers\stokBarangController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,4 +32,14 @@ Route::get('/gudang/stok/edit/{id}', [stokController::class, 'edit'])->name('sto
 Route::put('/gudang/stok/update/{id}', [stokController::class, 'update'])->name('stok.update');
 
 Route::get('/admin/dashboard', [dashboardController::class, 'admin']);
+Route::get('/admin/penjualan', [penjualanController::class, 'penjualan']);
+Route::post('/admin/penjualan', [penjualanController::class, 'store'])->name('penjualan.store');
+Route::get('/admin/stok_barang', [stokBarangController::class, 'index'])->name('stokBarang.index');
+Route::get('/admin/stok_barang/edit/{id}', [stokBarangController::class, 'edit'])->name('stokBarang.edit');
+Route::put('/admin/stok_barang/update/{id}', [stokBarangController::class, 'update'])->name('stokBarang.update');
+
+Route::get('/admin/lap_penjualan', [LapPenjualanController::class, 'index'])->name('lapPenjualan.index');
+Route::post('/admin/lap_penjualan/store', [LapPenjualanController::class, 'store'])->name('lapPenjualan.store');
+
+
 Route::get('/pusat/dashboard', [dashboardController::class, 'pusat']);

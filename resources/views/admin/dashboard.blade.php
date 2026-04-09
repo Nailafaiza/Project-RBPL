@@ -1,5 +1,7 @@
-<h1>Dashboard Admin</h1>
+@extends('admin.template.template')
 
-<p>Selamat datang, {{ session('username') }}</p>
-
-<a href="{{ route('logout') }}">Logout</a>
+@section('content')
+    <div class="content">
+        <h3>Selamat datang, {{ session('username') }}</h3>       
+    </div>
+@endsection

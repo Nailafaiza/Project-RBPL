@@ -18,3 +18,4 @@ class pengguna extends Model
         'password',
     ];
 }
+
