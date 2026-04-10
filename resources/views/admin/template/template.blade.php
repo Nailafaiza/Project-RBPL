@@ -92,13 +92,15 @@
         
 
         .search-box {
-            background: white;
-            padding: 8px 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            width: 300px;
-        }
+          background: white;
+          padding: 10px 18px;
+          border-radius: 25px;
+          display: flex;
+          align-items: center;
+          width: 350px; 
+          height: 45px; 
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 
         .search-box input {
             border: none;
@@ -159,8 +161,15 @@
 
         <div class="topbar">
             <div class="search-box">
-                🔍
-                <input type="text" placeholder="Cari Data">
+               <form method="GET" action="/admin/stok_barang">
+                    <input 
+                        type="text" 
+                        name="search"
+                        placeholder="Cari Data.........."
+                        value="{{ request('search') }}"
+                        onkeyup="this.form.submit()"
+                    >
+                </form>
             </div>
 
             <div class="profile">

@@ -1,17 +1,16 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class LapPenjualan extends Model
+class penjualan extends Model
 {
-    protected $table = 'lap_penjualans';
+    protected $table = 'penjualan';
 
     protected $fillable = [
         'nama_barang',
-        'jumlah',
-        'total_pendapatan',
-        'periode'
+        'jumlah_terjual',
+        'harga_satuan',
+        'total'
     ];
-}
+};

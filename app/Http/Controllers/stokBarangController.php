@@ -7,18 +7,37 @@ use App\Models\StokBarang;
 
 class stokBarangController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $stok = StokBarang::all();
+        $search = $request->input('search');
 
-        return view('admin.stok_barang', compact('stok'));
+        $stok = StokBarang::when($search, function ($query, $search) {
+            return $query->where('nama_barang', 'like', '%' . $search . '%');
+        })->get();
+
+        // Ambil asal halaman (gudang / admin)
+        $from = $request->input('from');
+
+        if ($from == 'gudang') {
+            return view('gudang.lap_stok', compact('stok'));
+        } else {
+            return view('admin.stok_barang', compact('stok'));
+        }
     }
 
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
         $stok = StokBarang::findOrFail($id);
+        $from = $request->input('from');
 
-        return view('admin.edit_stok_barang', compact('stok'));
+        if ($from == 'gudang') {
+            return view('gudang.edit_lap_stok', compact('stok', 'from'));
+        } else {
+            return view('admin.edit_stok_barang', compact('stok', 'from'));
+        }
+        if ($from == 'pusat'){
+            return view('gudang.lap_stok');
+        }
     }
 
     public function update(Request $request, $id)
@@ -29,7 +48,14 @@ class stokBarangController extends Controller
             'jumlah' => $request->jumlah
         ]);
 
-        return redirect()->route('stokBarang.index')
-            ->with('success', 'Stok berhasil diperbarui!');
+        $from = $request->input('from');
+
+        if ($from == 'gudang') {
+            return redirect('/gudang/lap_stok')
+                ->with('success', 'Stok berhasil diperbarui!');
+        } else {
+            return redirect('/admin/stok_barang')
+                ->with('success', 'Stok berhasil diperbarui!');
+        }
     }
 }

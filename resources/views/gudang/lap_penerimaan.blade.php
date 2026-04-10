@@ -4,6 +4,7 @@
 
 <style>
     .container-custom {
+        position: relative;
         padding: 30px 40px;
         width: 100%;
     }
@@ -102,7 +103,6 @@
     <div class="card-custom">
 
         <h3>Form Penerimaan Barang</h3>
-
         <form action="{{ route('penerimaan.store') }}" method="POST">
             @csrf
         

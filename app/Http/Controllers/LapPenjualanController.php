@@ -3,38 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\LapPenjualan;
+use App\Models\penjualan;
+use Illuminate\Support\Facades\DB;
 
 class LapPenjualanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $laporan = LapPenjualan::all();
+        $bulan = $request->bulan ?? date('m');
 
-        return view('admin.lap_penjualan', compact('laporan'));
-    }
+        $data = penjualan::select(
+                'nama_barang',
+                DB::raw('SUM(jumlah_terjual) as total_terjual'),
+                DB::raw('SUM(total) as total_pendapatan')
+            )
+            ->whereMonth('created_at', $bulan)
+            ->groupBy('nama_barang')
+            ->get();
 
-    public function store(Request $request)
-    {
-        $request->validate([
-            'nama_barang' => 'required',
-            'jumlah' => 'required',
-            'total_pendapatan' => 'required',
-            'periode' => 'required'
-        ],[
-            'nama_barang.required' => 'Nama barang harus diisi!',
-            'jumlah.required' => 'Jumlah terjual harus diisi!',
-            'total_pendapatan.required' => 'Total Pendapatan harus diisi!',
-            'periode.required' => 'Periode harus diisi!'
-        ]);
-        LapPenjualan::create([
-            'nama_barang' => $request->nama_barang,
-            'jumlah' => $request->jumlah,
-            'total_pendapatan' => $request->total_pendapatan,
-            'periode' => $request->periode
-        ]);
+        $totalPendapatan = $data->sum('total_pendapatan');
 
-        return redirect()->route('lapPenjualan.index')
-            ->with('success', 'Data berhasil ditambahkan!');
+        $terlaris = $data->sortByDesc('total_terjual')->first();
+
+        return view('admin.lapPenjualan', compact(
+            'data',
+            'totalPendapatan',
+            'terlaris',
+            'bulan'
+        ));
     }
 }

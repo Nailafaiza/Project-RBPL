@@ -12,9 +12,10 @@
 <style>
 body {
     font-family: montserrat; 
-    background-color: #f5f5f5;
+    background: url('{{ asset('asset/satu.png') }}') no-repeat center center/cover; no-repeat center center/cover;
     text-align: center;
     margin: 0;
+    
 }
 
 h1 {

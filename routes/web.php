@@ -30,6 +30,8 @@ Route::post('/penerimaan', [penerimaanController::class, 'store'])->name('peneri
 Route::get('/gudang/lap_stok', [stokController::class, 'index'])->name('stok.index');
 Route::get('/gudang/stok/edit/{id}', [stokController::class, 'edit'])->name('stok.edit');
 Route::put('/gudang/stok/update/{id}', [stokController::class, 'update'])->name('stok.update');
+Route::get('/gudang/lap_stok', [stokBarangController::class, 'index'])->name('stokBarang.index');
+Route::get('/gudang/lap_penerimaan', [penerimaanController::class, 'lap_penerimaan'])->name('lapPenerimaan.index'); 
 
 Route::get('/admin/dashboard', [dashboardController::class, 'admin']);
 Route::get('/admin/penjualan', [penjualanController::class, 'penjualan']);
@@ -37,9 +39,14 @@ Route::post('/admin/penjualan', [penjualanController::class, 'store'])->name('pe
 Route::get('/admin/stok_barang', [stokBarangController::class, 'index'])->name('stokBarang.index');
 Route::get('/admin/stok_barang/edit/{id}', [stokBarangController::class, 'edit'])->name('stokBarang.edit');
 Route::put('/admin/stok_barang/update/{id}', [stokBarangController::class, 'update'])->name('stokBarang.update');
-
 Route::get('/admin/lap_penjualan', [LapPenjualanController::class, 'index'])->name('lapPenjualan.index');
 Route::post('/admin/lap_penjualan/store', [LapPenjualanController::class, 'store'])->name('lapPenjualan.store');
 
-
+Route::get('/lap-penjualan', [LapPenjualanController::class, 'index'])->name('laporan');
+Route::get('/penjualan', [penjualanController::class, 'penjualan']);
+Route::post('/penjualan', [penjualanController::class, 'store'])->name('penjualan.store');
 Route::get('/pusat/dashboard', [dashboardController::class, 'pusat']);
+
+Route::get('/pusat/lap_penjualan', [LapPenjualanController::class, 'index'])->name('lapPenjualan.index');
+Route::get('/pusat/lap_stok', [stokBarangController::class, 'index'])->name('stokBarang.index');
+Route::get('/pusat/lap_penerimaan', [penerimaanController::class, 'lap_penerimaan'])->name('lapPenerimaan.index');  

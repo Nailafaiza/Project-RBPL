@@ -92,13 +92,22 @@
         
 
         .search-box {
-            background: white;
-            padding: 8px 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            width: 300px;
-        }
+          background: white;
+    padding: 10px 18px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    width: 350px; 
+    height: 45px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.search-box form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
 
         .search-box input {
             border: none;
@@ -154,15 +163,22 @@
     <div class="main">
 
         <div class="topbar">
-            <div class="search-box">
-                🔍
-                <input type="text" placeholder="Cari Data">
-            </div>
+    <div class="search-box">
+        <form method="GET" action="/gudang/lap_stok">
+            <input 
+                type="text" 
+                name="search"
+                placeholder="Cari Data.........."
+                value="{{ request('search') }}"
+                onkeyup="this.form.submit()"
+            >
+        </form>
+    </div>
+</div>
 
             <div class="profile">
                 Manajer Gudang
             </div>
-        </div>
 
         <div class="content">
             @yield('content') 
