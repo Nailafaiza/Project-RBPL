@@ -182,7 +182,7 @@ button:hover {
     <h2 id="roleTitle"></h2>
 
     <div class="form-box">
-       <form action="https://project-rbpl-production.up.railway.app/register" method="POST">
+       <form action="{{ secure_url('/register') }}" method="POST">
             @csrf
 
             <input type="hidden" name="role" id="roleInput">

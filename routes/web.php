@@ -56,5 +56,5 @@ Route::get('/clear', function () {
     Artisan::call('config:clear');
     Artisan::call('cache:clear');
     Artisan::call('route:clear');
-    return 'cache cleared';
+    return 'CLEARED';
 });
