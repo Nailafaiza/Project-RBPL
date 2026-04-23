@@ -12,7 +12,7 @@
 <style>
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: url('{{ asset('asset/satu.png') }}') no-repeat center center/cover; no-repeat center center/cover;
+    background: url('{{ asset('asset/satu.png') }}') no-repeat center center/cover;
     text-align: center;
     margin: 0;
     font-family: montserrat;
@@ -209,7 +209,7 @@ button:hover {
 
 <p style="margin-top:15px; text-align:center;">
     Belum punya akun?
-    <a href="https://project-rbpl-production.up.railway.app/register" style="color:#a63a56; font-weight:600;">
+    <a href="{{ route('register') }}" style="color:#a63a56; font-weight:600;">
         Register
     </a>
 </p>

@@ -12,7 +12,7 @@
 <style>
 body {
     font-family: montserrat; 
-    background: url('{{ asset('asset/satu.png') }}') no-repeat center center/cover; no-repeat center center/cover;
+    background: url('{{ asset('asset/satu.png') }}') no-repeat center center/cover;
     text-align: center;
     margin: 0;
     
@@ -182,7 +182,7 @@ button:hover {
     <h2 id="roleTitle"></h2>
 
     <div class="form-box">
-       <form action="{{ secure_url('/register') }}" method="POST">
+       <form action="{{ route('register') }}" method="POST">
             @csrf
 
             <input type="hidden" name="role" id="roleInput">
