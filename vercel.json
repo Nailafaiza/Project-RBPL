@@ -14,7 +14,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
-        "APP_URL": "http://localhost",
+        "APP_URL": "https://project-rbpl-ten.vercel.app",
         "APP_KEY": "base64:91cKZnojNoyj0BlWcA9d6qZOtZqGYKzGMsMYa80Nx0Y=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
