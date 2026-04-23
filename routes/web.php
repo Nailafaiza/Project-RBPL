@@ -50,3 +50,11 @@ Route::get('/pusat/dashboard', [dashboardController::class, 'pusat']);
 Route::get('/pusat/lap_penjualan', [LapPenjualanController::class, 'index'])->name('lapPenjualan.index');
 Route::get('/pusat/lap_stok', [stokController::class, 'index'])->name('stokBarang.index');
 Route::get('/pusat/lap_penerimaan', [penerimaanController::class, 'lap_penerimaan'])->name('lapPenerimaan.index');  
+
+Route::get('/clear', function () {
+    Artisan::call('view:clear');
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('route:clear');
+    return 'cache cleared';
+});

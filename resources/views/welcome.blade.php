@@ -209,7 +209,7 @@ button:hover {
 
 <p style="margin-top:15px; text-align:center;">
     Belum punya akun?
-    <a href="{{ route('register') }}" style="color:#a63a56; font-weight:600;">
+    <a href="https://project-rbpl-production.up.railway.app/register" style="color:#a63a56; font-weight:600;">
         Register
     </a>
 </p>
