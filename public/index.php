@@ -1,5 +1,7 @@
 <?php
 
+$_SERVER['HTTPS'] = 'on';
+
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 
