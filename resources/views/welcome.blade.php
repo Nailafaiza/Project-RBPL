@@ -12,7 +12,7 @@
 <style>
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: url('{{ asset('asset/satu.png') }}') no-repeat center center/cover;
+    background: url('{{ asset('asset/satu.png') }}') no-repeat center center/cover; no-repeat center center/cover;
     text-align: center;
     margin: 0;
     font-family: montserrat;
