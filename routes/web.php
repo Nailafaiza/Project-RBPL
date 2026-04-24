@@ -8,6 +8,8 @@ use App\Http\Controllers\penerimaanController;
 use App\Http\Controllers\stokController;
 use App\Http\Controllers\penjualanController;
 use App\Http\Controllers\stokBarangController;
+use App\Http\Controllers\lapPenjualanPusatController;
+use App\Http\Controllers\lapStokPusatController;
 
 
 Route::get('/', function () {
@@ -46,6 +48,6 @@ Route::get('/penjualan', [penjualanController::class, 'penjualan']);
 Route::post('/penjualan', [penjualanController::class, 'store'])->name('penjualan.store');
 Route::get('/pusat/dashboard', [dashboardController::class, 'pusat']);
 
-Route::get('/pusat/lap_penjualan', [LapPenjualanController::class, 'index'])->name('lapPenjualan.index');
-Route::get('/pusat/lap_stok', [stokController::class, 'index'])->name('stokBarang.index');
+Route::get('/pusat/lap_penjualan', [LapPenjualanPusatController::class, 'index'])->name('lap_penjualan.index');
+Route::get('/pusat/lap_stok', [lapStokPusatController::class, 'index'])->name('lap_stok.index');
 Route::get('/pusat/lap_penerimaan', [penerimaanController::class, 'lap_penerimaan'])->name('lapPenerimaan.index');  
