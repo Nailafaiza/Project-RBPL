@@ -134,7 +134,7 @@
     <div class="sidebar">
         <div class="sidebar-top">
             <div class="logo">
-                <img src="{{ asset('images/logo.png') }}" alt="Logo">
+               <img src="/asset/logo.png" alt="Logo">
             </div>
 
             <div class="menu">
