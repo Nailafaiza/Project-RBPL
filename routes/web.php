@@ -51,3 +51,4 @@ Route::get('/pusat/dashboard', [dashboardController::class, 'pusat']);
 Route::get('/pusat/lap_penjualan', [lapPenjualanPusatController::class, 'index'])->name('lap_penjualan.index');
 Route::get('/pusat/lap_stok', [lapStokPusatController::class, 'index'])->name('lap_stok.index');
 // Route::get('/pusat/lap_penerimaan', [penerimaanController::class, 'lap_penerimaan'])->name('lapPenerimaan.index');  
+Route::get('/laporan/pdf', [LaporanController::class, 'cetakPdfAdmin'])->name('laporan.pdf');

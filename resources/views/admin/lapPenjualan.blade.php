@@ -4,6 +4,12 @@
 
 <h2>Laporan Penjualan</h2>
 
+<a href="{{ route('admin.laporan.pdf', ['bulan' => $bulan]) }}" target="_blank">
+    <button style="margin-top:10px; background:#a63a56; color:white;">
+        📄 Cetak PDF
+    </button>
+</a>
+
 <form method="GET">
     <select name="bulan" onchange="this.form.submit()">
         @for($i=1; $i<=12; $i++)
