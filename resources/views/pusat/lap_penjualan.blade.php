@@ -105,7 +105,15 @@ new Chart(document.getElementById('chartPenjualan'), {
             <td colspan="3" class="empty">Tidak ada data</td>
         </tr>
         @endforelse
+
+        <a href="{{ route('laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
+        <button style="padding:10px 15px; background:#b24b60; color:white; border:none; border-radius:5px;">
+        Cetak PDF
+    </button>
+</a>
     </tbody>
 </table>
+
+
 
 @endsection
