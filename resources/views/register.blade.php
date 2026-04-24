@@ -193,6 +193,9 @@ button:hover {
             <label>Password</label>
             <input type="password" name="password" required>
 
+            <label> Email</label>
+            <input type="email" name="email" required>  
+
             <button type="submit">REGISTER</button>
         </form>
 

@@ -181,7 +181,7 @@
     <div class="sidebar-header">
         <h3>Manajer Pusat</h3>
         <div class="logo-container">
-            <img src="{{ asset('images/logo.png') }}" alt="Logo">
+            <img src="/asset/logo.png" alt="Logo">
         </div>
     </div>
 
