@@ -191,10 +191,10 @@
             <a href="/pusat/dashboard" class="active">
                 Dashboard
             </a>
-            <a href="/admin/lap_penjualan">
+            <a href="/pusat/lap_penjualan">
                 Laporan Penjualan
             </a>
-            <a href="/gudang/lap_stok">
+            <a href="/pusat/lap_stok">
                 Laporan Stok
             </a>
             
