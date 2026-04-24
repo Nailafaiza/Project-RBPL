@@ -202,7 +202,7 @@
             </a>
             <a href="/pusat/lap_penerimaan"
             class="{{ request()->is('pusat/lap_penerimaan') ? 'active' : '' }}">
-                Laporan Stok
+                Laporan Penerimaan
             </a>
             
         </div>
