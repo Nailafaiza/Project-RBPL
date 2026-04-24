@@ -192,8 +192,8 @@
             class="{{ request()->is('pusat/dashboard') ? 'active' : '' }}">
                 Dashboard
             </a>
-            <a href="/pusat/lap_penjualan"
-            class="{{ request()->is('pusat/lap_penjualan') ? 'active' : '' }}">
+            <a href="{{ route('laporan_penjualan_pusat.index') }}"
+            class="{{ request()->routeIs('laporan_penjualan_pusat.index') ? 'active' : '' }}">
                 Laporan Penjualan
             </a>
             <a href="/pusat/lap_stok"
