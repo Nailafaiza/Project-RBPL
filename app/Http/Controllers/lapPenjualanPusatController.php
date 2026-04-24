@@ -25,7 +25,7 @@ class lapPenjualanPusatController extends Controller
 
         $terlaris = $data->sortByDesc('total_terjual')->first();
 
-        return view('pusat.lap_penjualan', compact(
+        return view('pusat.laporan_penjualan_pusat', compact(
             'data',
             'totalPendapatan',
             'terlaris',

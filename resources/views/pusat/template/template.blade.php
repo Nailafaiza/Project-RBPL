@@ -188,13 +188,20 @@
     
     <div class="sidebar-menu-container">
         <div class="menu">
-            <a href="/pusat/dashboard" class="active">
+            <a href="/pusat/dashboard" 
+            class="{{ request()->is('pusat/dashboard') ? 'active' : '' }}">
                 Dashboard
             </a>
-            <a href="/pusat/lap_penjualan">
+            <a href="/pusat/lap_penjualan"
+            class="{{ request()->is('pusat/lap_penjualan') ? 'active' : '' }}">
                 Laporan Penjualan
             </a>
-            <a href="/pusat/lap_stok">
+            <a href="/pusat/lap_stok"
+            class="{{ request()->is('pusat/lap_stok') ? 'active' : '' }}">
+                Laporan Stok
+            </a>
+            <a href="/pusat/lap_penerimaan"
+            class="{{ request()->is('pusat/lap_penerimaan') ? 'active' : '' }}">
                 Laporan Stok
             </a>
             
