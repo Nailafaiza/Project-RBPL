@@ -229,8 +229,7 @@
     </div>
 
     <div class="content">
-        <h1>Dashboard Manajer Pusat</h1>
-        @yield('content');
+        @yield('content')
     </div>
 </div>
 
