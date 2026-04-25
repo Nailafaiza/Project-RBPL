@@ -90,7 +90,6 @@
             <tr>
                 <th>Nama Barang</th>
                 <th>Jumlah</th>
-                <th>Aksi</th>
             </tr>
         </thead>
 
@@ -99,11 +98,6 @@
                 <tr>
                     <td>{{ $item->nama_barang }}</td>
                     <td>{{ $item->jumlah }}</td>
-                    <td>
-                        <a href="{{ route('stokBarang.edit', $item->id) }}" class="btn-edit">
-                            Edit
-                        </a>
-                    </td>
                 </tr>
             @endforeach
         </tbody>
