@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\penerimaan;
+use App\Models\LapPenerimaan;
 
 class lapPenerimaanPusatController extends Controller
 {
