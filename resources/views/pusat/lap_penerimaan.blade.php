@@ -96,10 +96,12 @@
         </thead>
 
         <tbody>
-            @foreach ($stok as $item)
+            @foreach ($data as $item)
                 <tr>
                     <td>{{ $item->nama_barang }}</td>
                     <td>{{ $item->jumlah }}</td>
+                    <td>{{ $item->kondisi_barang }}</td>
+                    <td>{{ $item->tanggal_penerimaan }}</td>
                 </tr>
             @endforeach
         </tbody>
