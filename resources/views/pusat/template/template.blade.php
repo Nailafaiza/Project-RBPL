@@ -230,7 +230,7 @@
 
     <div class="content">
         <h1>Dashboard Manajer Pusat</h1>
-        <p>Selamat datang, {{ session('username') }}</p>
+        @yield('content');
     </div>
 </div>
 
