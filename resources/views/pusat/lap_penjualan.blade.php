@@ -106,10 +106,10 @@ new Chart(document.getElementById('chartPenjualan'), {
         </tr>
         @endforelse
 
-        <a href="{{ route('laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
+        {{-- <a href="{{ route('laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
         <button style="padding:10px 15px; background:#b24b60; color:white; border:none; border-radius:5px;">
         Cetak PDF
-    </button>
+    </button> --}}
 </a>
     </tbody>
 </table>
