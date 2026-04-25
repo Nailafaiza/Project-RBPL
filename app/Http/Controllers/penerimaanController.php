@@ -25,7 +25,6 @@ class penerimaanController extends Controller
             'kondisi_barang' => 'required'
         ]);
 
-        // simpan ke tabel lap_penerimaan
         LapPenerimaan::create([
             'nama_barang' => $request->nama_barang,
             'tanggal_penerimaan' => $request->tanggal_penerimaan,
@@ -33,7 +32,6 @@ class penerimaanController extends Controller
             'kondisi_barang' => $request->kondisi_barang,
         ]);
 
-        // update / tambah stok
         $stok = StokBarang::where('nama_barang', $request->nama_barang)->first();
 
         if ($stok) {
