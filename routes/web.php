@@ -11,7 +11,7 @@ use App\Http\Controllers\stokBarangController;
 use App\Http\Controllers\lapPenjualanPusatController;
 use App\Http\Controllers\lapStokPusatController;
 use App\Http\Controllers\lapPenerimaanPusatController;
-
+use App\Http\Controllers\LaporanController;
 
 Route::get('/', function () {
     return view('welcome');
