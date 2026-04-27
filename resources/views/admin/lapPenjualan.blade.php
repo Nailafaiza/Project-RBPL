@@ -24,6 +24,11 @@ Barang Terlaris:
 ({{ optional($terlaris)->total_terjual ?? 0 }} pcs)
 </h3>
 
+<a href="{{ route('admin.laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
+<button style="margin-top:10px; background:#a63a56; color:white;">
+        📄 Cetak PDF
+</button>
+
 <canvas id="chartPenjualan"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -86,10 +91,6 @@ new Chart(document.getElementById('chartPenjualan'), {
 
 <table class="table-custom">
     <thead>
-        <a href="{{ route('admin.laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
-        <button style="margin-top:10px; background:#a63a56; color:white;">
-        📄 Cetak PDF
-        </button>
         <tr>
             <th>Nama Barang</th>
             <th>Total Terjual</th>
