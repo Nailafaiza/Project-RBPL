@@ -24,10 +24,18 @@ Barang Terlaris:
 ({{ optional($terlaris)->total_terjual ?? 0 }} pcs)
 </h3>
 
-<a href="{{ route('admin.laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
-<button style="margin-top:10px; background:#a63a56; color:white;">
-        📄 Cetak PDF
-</button>
+<div style="text-align: center; margin-top: 15px;">
+    <a href="{{ route('pusat.penerimaan_pdf') }}" target="_blank">
+    <button style="
+            background:#a63a56;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        ">
+            📄 Cetak Laporan Penjualan
+        </button>
 
 <canvas id="chartPenjualan"></canvas>
 
