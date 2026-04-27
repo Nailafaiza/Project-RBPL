@@ -1,44 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laporan PDF</title>
+    <meta charset="UTF-8">
+    <title>Laporan Penjualan</title>
+
     <style>
-        body { font-family: sans-serif; }
-        table { border-collapse: collapse; width: 100%; }
-        th { background: #a63a56; color: white; }
-        th, td { padding: 8px; border: 1px solid #ccc; }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .info {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .total {
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: right;
+        }
     </style>
 </head>
+
 <body>
 
-<h2>Laporan Penjualan (Admin) - Bulan {{ $bulan }}</h2>
+    <h2>Laporan Penjualan</h2>
 
-<p>Total Pendapatan: Rp {{ number_format($totalPendapatan) }}</p>
+    <div class="info">
+        Bulan: {{ $bulan }} <br>
+        Tanggal Cetak: {{ date('d-m-Y') }}
+    </div>
 
-<p>
-Barang Terlaris:
-{{ optional($terlaris)->nama_barang ?? '-' }}
-({{ optional($terlaris)->total_terjual ?? 0 }} pcs)
-</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama Barang</th>
+                <th>Total Terjual</th>
+                <th>Pendapatan</th>
+            </tr>
+        </thead>
 
-<br>
+        <tbody>
+            @php $grandTotal = 0; @endphp
 
-<table>
-    <tr>
-        <th>Nama Barang</th>
-        <th>Total Terjual</th>
-        <th>Pendapatan</th>
-    </tr>
+            @forelse($data as $item)
+            <tr>
+                <td>{{ $item->nama_barang }}</td>
+                <td>{{ $item->total_terjual }}</td>
+                <td>Rp {{ number_format($item->total_pendapatan, 0, ',', '.') }}</td>
+            </tr>
 
-    @foreach($data as $item)
-    <tr>
-        <td>{{ $item->nama_barang }}</td>
-        <td>{{ $item->total_terjual }}</td>
-        <td>Rp {{ number_format($item->total_pendapatan) }}</td>
-    </tr>
-    @endforeach
+            @php
+                $grandTotal += $item->total_pendapatan;
+            @endphp
 
-</table>
+            @empty
+            <tr>
+                <td colspan="3">Tidak ada data</td>
+            </tr>
+            @endforelse
+
+            <tr class="total">
+                <td colspan="2">Total Pendapatan</td>
+                <td>Rp {{ number_format($grandTotal, 0, ',', '.') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <p>Dicetak oleh sistem</p>
+    </div>
 
 </body>
 </html>

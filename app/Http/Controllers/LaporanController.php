@@ -12,7 +12,7 @@ class LaporanController extends Controller
     {
         $bulan = $request->bulan;
 
-        $data = DB::table('lap_penjualans') 
+        $data = DB::table('penjualan') 
             ->select(
                 'nama_barang',
                 DB::raw('SUM(jumlah) as total_terjual'),
