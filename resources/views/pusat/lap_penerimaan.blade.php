@@ -122,10 +122,17 @@
         }
     </script>
 
+    <div style="text-align: center; margin-top: 15px;">
     <a href="{{ route('pusat.penerimaan_pdf') }}" target="_blank">
-    <button style="margin-top:10px; background:#a63a56; color:white;">
-        📄 Cetak PDF
-    </button>
-    </a>
+    <button style="
+            background:#a63a56;
+            color:white;
+            padding:10px 20px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        ">
+            📄 Cetak Laporan Penerimaan
+        </button>
 
 @endsection
