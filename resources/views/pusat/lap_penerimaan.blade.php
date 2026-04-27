@@ -121,4 +121,11 @@
             document.getElementById("popupOverlay").style.display = "none";
         }
     </script>
+
+    <a href="{{ route('pusat.penerimaan_pdf') }}" target="_blank">
+    <button style="margin-top:10px; background:#a63a56; color:white;">
+        📄 Cetak PDF
+    </button>
+    </a>
+
 @endsection

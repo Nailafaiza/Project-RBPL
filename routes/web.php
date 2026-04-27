@@ -12,6 +12,7 @@ use App\Http\Controllers\lapPenjualanPusatController;
 use App\Http\Controllers\lapStokPusatController;
 use App\Http\Controllers\lapPenerimaanPusatController;
 use App\Http\Controllers\LaporanController;
+Use App\Http\Controllers\PenerimaanPDFController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -55,3 +56,6 @@ Route::get('/pusat/lap_penerimaan', [lapPenerimaanPusatController::class, 'index
 
 Route::get('/laporan/pdf', [LaporanController::class, 'cetakPDF'])
     ->name('admin.laporan_pdf');
+
+Route::get('/penerimaan/pdf', [PenerimaanPdfController::class, 'cetakPDF'])
+    ->name('pusat.penerimaan_pdf');
