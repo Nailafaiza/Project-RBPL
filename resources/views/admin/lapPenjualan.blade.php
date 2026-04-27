@@ -86,6 +86,10 @@ new Chart(document.getElementById('chartPenjualan'), {
 
 <table class="table-custom">
     <thead>
+        <a href="{{ route('admin.laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
+        <button style="margin-top:10px; background:#a63a56; color:white;">
+        📄 Cetak PDF
+        </button>
         <tr>
             <th>Nama Barang</th>
             <th>Total Terjual</th>
@@ -107,11 +111,5 @@ new Chart(document.getElementById('chartPenjualan'), {
         @endforelse
     </tbody>
 </table>
-
-<a href="{{ route('admin.laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
-    <button style="margin-top:10px; background:#a63a56; color:white;">
-        📄 Cetak PDF
-    </button>
-</a>
 
 @endsection
