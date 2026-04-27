@@ -15,7 +15,7 @@ class LaporanController extends Controller
         $data = DB::table('penjualan') 
             ->select(
                 'nama_barang',
-                DB::raw('SUM(jumlah) as total_terjual'),
+                DB::raw('SUM(jumlah_terjual) as total_terjual'),
                 DB::raw('SUM(total) as total_pendapatan')
             )
             ->whereMonth('created_at', $bulan)
