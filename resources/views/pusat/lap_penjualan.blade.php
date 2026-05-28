@@ -25,8 +25,8 @@ Barang Terlaris:
 </h3>
 
 <div style="text-align: center; margin-top: 15px;">
-    <a href="{{ route('pusat.laporan_pdf') }}" target="_blank">
-    <button style="
+    <a href="{{ route('pusat.laporan_pdf', ['bulan' => $bulan]) }}" target="_blank">
+        <button style="
             background:#a63a56;
             color:white;
             padding:10px 20px;
@@ -36,6 +36,10 @@ Barang Terlaris:
         ">
             📄 Cetak Laporan Penjualan
         </button>
+    </a>
+</div>
+
+<canvas id="chartPenjualan"></canvas>
 
 
 <canvas id="chartPenjualan"></canvas>
