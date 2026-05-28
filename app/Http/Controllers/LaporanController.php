@@ -22,7 +22,7 @@ class LaporanController extends Controller
             ->groupBy('nama_barang')
             ->get();
 
-        $pdf = Pdf::loadView('admin.laporan_pdf', compact('data', 'bulan'));
+        $pdf = Pdf::loadView('pusat.laporan_pdf', compact('data', 'bulan'));
 
         return $pdf->download('laporan_penjualan.pdf');
     }
