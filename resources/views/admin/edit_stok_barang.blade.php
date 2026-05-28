@@ -53,6 +53,41 @@
             background: #c27180;
         }
 
+        
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-box {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .popup-text {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .popup-button {
+            padding: 8px 20px;
+            border: none;
+            background: #b24b60;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
     </style>
 
     <div class="edit-container">
@@ -82,4 +117,23 @@
         </form>
     </div>
 
+    @if ($errors->any())
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-box">
+            <p class="popup-text">
+                {{ $errors->first() }}
+            </p>
+
+            <button class="popup-button" onclick="closePopup()">
+                OK
+            </button>
+        </div>
+    </div>
+@endif
+
+<script>
+    function closePopup() {
+        document.getElementById("popupOverlay").style.display = "none";
+    }
+</script>
 @endsection
