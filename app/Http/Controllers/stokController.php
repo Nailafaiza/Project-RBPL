@@ -23,6 +23,14 @@ class stokController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'jumlah' => 'required|numeric|min:1'
+        ], [
+            'jumlah.required' => 'Jumlah barang tidak boleh kosong!',
+            'jumlah.numeric' => 'Jumlah barang harus berupa angka!',
+            'jumlah.min' => 'Jumlah barang minimal 1!'
+        ]);
+
         $stok = StokBarang::findOrFail($id);
 
         $stok->update([
