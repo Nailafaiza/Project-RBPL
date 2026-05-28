@@ -15,7 +15,6 @@ class stokBarangController extends Controller
             return $query->where('nama_barang', 'like', '%' . $search . '%');
         })->get();
 
-        // Ambil asal halaman (gudang / admin)
         $from = $request->input('from');
 
         if ($from == 'gudang') {
@@ -41,21 +40,29 @@ class stokBarangController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $stok = StokBarang::findOrFail($id);
+{
+    $request->validate([
+        'jumlah' => 'required|numeric|min:1'
+    ], [
+        'jumlah.required' => 'Jumlah barang tidak boleh kosong!',
+        'jumlah.numeric' => 'Jumlah barang harus berupa angka!',
+        'jumlah.min' => 'Jumlah barang minimal 1!'
+    ]);
 
-        $stok->update([
-            'jumlah' => $request->jumlah
-        ]);
+    $stok = StokBarang::findOrFail($id);
 
-        $from = $request->input('from');
+    $stok->update([
+        'jumlah' => $request->jumlah
+    ]);
 
-        if ($from == 'gudang') {
-            return redirect('/gudang/lap_stok')
-                ->with('success', 'Stok berhasil diperbarui!');
-        } else {
-            return redirect('/admin/stok_barang')
-                ->with('success', 'Stok berhasil diperbarui!');
-        }
+    $from = $request->input('from');
+
+    if ($from == 'gudang') {
+        return redirect('/gudang/lap_stok')
+            ->with('success', 'Stok berhasil diperbarui!');
+    } else {
+        return redirect('/admin/stok_barang')
+            ->with('success', 'Stok berhasil diperbarui!');
+    }
     }
 }

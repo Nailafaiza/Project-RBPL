@@ -81,5 +81,29 @@
 
         </form>
     </div>
+</form>
+</div>
+
+@if ($errors->any())
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-box">
+            <p class="popup-text">
+                {{ $errors->first() }}
+            </p>
+
+            <button class="popup-button" onclick="closePopup()">
+                OK
+            </button>
+        </div>
+    </div>
+@endif
+
+<script>
+    function closePopup() {
+        document.getElementById("popupOverlay").style.display = "none";
+    }
+</script>
+
+@endsection
 
 @endsection
