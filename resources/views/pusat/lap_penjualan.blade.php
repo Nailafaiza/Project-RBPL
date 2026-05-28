@@ -25,7 +25,7 @@ Barang Terlaris:
 </h3>
 
 <div style="text-align: center; margin-top: 15px;">
-    <a href="{{ route('pusat.penerimaan_pdf') }}" target="_blank">
+    <a href="{{ route('pusat.laporan_pdf') }}" target="_blank">
     <button style="
             background:#a63a56;
             color:white;
