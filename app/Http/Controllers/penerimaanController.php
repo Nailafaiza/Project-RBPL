@@ -30,7 +30,7 @@ class penerimaanController extends Controller
             'jumlah.numeric' => 'Jumlah barang harus berupa angka!',
             'jumlah.min' => 'Jumlah barang minimal 1!',
 
-            'kondisi_barang.required' => 'Kondisi barang wajib dipilih!'
+            'kondisi_barang.required' => 'Kondisi barang wajib diisi!'
         ]);
 
         LapPenerimaan::create([
