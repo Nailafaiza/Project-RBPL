@@ -115,8 +115,6 @@
 
         </form>
     </div>
-</form>
-</div>
 
 @if ($errors->any())
     <div id="popupOverlay" class="popup-overlay">
